@@ -108,7 +108,8 @@ nextButton.addEventListener('click', function(){
 const nextInputField = document.getElementById('next-input').value;
 const nextInputNumber = document.getElementById('next-number').value;
 
-
+// console.log(nextInputField, 'its a email');
+// console.log(nextInputNumber, 'its a number')
 
 
 
