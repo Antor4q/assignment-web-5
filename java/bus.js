@@ -8,7 +8,8 @@ let deCount = 8;
 for(const seats of allSeats){
   seats.addEventListener('click', function(){
    fillSeat +=1;
-   
+   seats.classList.add('text-white');
+  
     if(fillSeat <= 4){
       seats.classList.add('bg-primary-color');
       
