@@ -4,7 +4,7 @@ const allSeats = document.getElementsByClassName('seat');
 let totalPrice = 0;
 let count = 0;
 let fillSeat = 0;
-let deCount = 40;
+let deCount = 8;
 for(const seats of allSeats){
   seats.addEventListener('click', function(){
    fillSeat +=1;
@@ -21,21 +21,12 @@ for(const seats of allSeats){
     
     const price = document.getElementById('total-price');
     price.innerText = totalPrice;
-    console.log(typeof price.innerText, 'price is it')
+   
   
     const grandPrice = document.getElementById('grand-price');
     grandPrice.innerText = totalPrice;
-    console.log(typeof grandPrice.innerText, 'price is it');
-    
-
- 
-
-    // const dis = parseInt(grandPrice.innerText)
-    // console.log(typeof dis)
-    // const discount = (dis / 100) * 20;
-    // console.log(discount);
-
-
+   
+   
     const seatCount = document.getElementById('seat-count');
     const seatCountNumber = parseInt(seatCount.innerText);
     count += 1;
@@ -73,25 +64,24 @@ for(const seats of allSeats){
     }
   })
 }
-// again chekcing
+
 const inputBtn = document.getElementById('input-btn');
 inputBtn.addEventListener('click', function(){
   const inputField = document.getElementById('input-field').value;
-  const couponCode = inputField.split(' ').join('').toUpperCase();
-  console.log(couponCode)
- if(couponCode === 'NEW15' && fillSeat === 4){
+ 
+ if(inputField === 'NEW15' && fillSeat === 4){
   const hideInputField = document.getElementById('input-container');
   hideInputField.classList.add('hidden');
 
   const couponDiscount = parseInt(totalPrice);
-  console.log( couponDiscount)
+ 
   const newDiscount = (couponDiscount / 100) * 15;
   const discount = couponDiscount - newDiscount;
   let grandPrice = document.getElementById('grand-price');
   grandPrice.innerText =discount;
-  console.log(discount)
+ 
 
- console.log('you got a discount')
+ 
 }
 else if( inputField === 'Couple 20' && fillSeat === 4){
   const hideInputField = document.getElementById('input-container');
@@ -102,7 +92,7 @@ else if( inputField === 'Couple 20' && fillSeat === 4){
   const discount = couponDiscount - newDiscount;
   let grandPrice = document.getElementById('grand-price');
   grandPrice.innerText =discount;
-  console.log(discount);
+  
 }
 else{
   alert('invalid coupon')
@@ -110,16 +100,16 @@ else{
 })
 
 const nextButton = document.getElementById('next-btn');
-nextButton.addEventListener('click', function(){
-
-const nextInputField = document.getElementById('next-input').value;
-const nextInputNumber = document.getElementById('next-number').value;
-
-
-
-
-
+const  nextInputNumber = document.getElementById('next-number');
+nextInputNumber.addEventListener('keyup', function(){
+  const numberValue = nextInputNumber.value;
+  const number = parseInt(numberValue);
+ if(number > -1 && typeof number === 'number'){
+  nextButton.removeAttribute('disabled');
+  
+ }
 })
+
 
 
 
